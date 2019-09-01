@@ -458,14 +458,8 @@ public class Designer extends JFrame {
                     }
                     JOptionPane.showMessageDialog(null, "Click OK to start the transfer.");
                     try {
-                        System.out.println("DATA INT {");
-                        for (var d : data) {
-                            System.out.print(d + ",");
-                        }
-                        System.out.println("}");
-
-                        new SimpleSerial().connect(Designer.this.hoopPort, data);
-
+                        var deviceService = new DeviceService();
+                        deviceService.Transfer(Designer.this.hoopPort, data);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
